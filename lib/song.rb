@@ -1,3 +1,4 @@
+require "pry"
 class Song
   attr_accessor :name, :artist_name
   @@all = []
@@ -29,8 +30,7 @@ class Song
   end
 
   def self.find_by_name(title) 
-    result = self.all.detect {|song| song.name == title}
-    result
+     self.all.detect {|song| song.name == title}
   end
 
   def self.find_or_create_by_name(title)
@@ -43,8 +43,7 @@ class Song
   end
 
   def self.alphabetical
-    sorted = self.all.sort_by {|song| song.name}
-    sorted
+    self.all.sort_by {|song| song.name}
   end
 
   def self.new_from_filename(filename)
